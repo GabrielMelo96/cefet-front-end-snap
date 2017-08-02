@@ -19,16 +19,26 @@ regioesAnotadas.forEach(raEl => {
   });
 });
 
-let botaoDefinirRegiaoEl = document.querySelector('#definir-regiao');
-botaoDefinirRegiaoEl.addEventListener('click', e => {
+let inputs = document.querySelectorAll('.controles input');
+inputs.forEach(inputEl => {
+
+  inputEl.addEventListener('keyup', e => {
+    atualizaRegiao(regioesAnotadas[0]);
+  });
+
+  inputEl.addEventListener('change', e => {
+    atualizaRegiao(regioesAnotadas[0]);
+  });
+});
+
+function atualizaRegiao(marcacaoEl) {
   let x = document.querySelector('#balao-x').value;
   let y = document.querySelector('#balao-y').value;
   let largura = document.querySelector('#balao-largura').value;
   let altura = document.querySelector('#balao-altura').value;
 
-  let regiao = regioesAnotadas[0];
-  regiao.style.left = x + 'px';
-  regiao.style.top = y + 'px';
-  regiao.style.width = largura + 'px';
-  regiao.style.height = altura + 'px';
-});
+  marcacaoEl.style.left = x + 'px';
+  marcacaoEl.style.top = y + 'px';
+  marcacaoEl.style.width = largura + 'px';
+  marcacaoEl.style.height = altura + 'px';
+}
