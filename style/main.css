@@ -108,3 +108,8 @@ main {
 .marcacao {
   cursor: help;
 }
+
+.marcacao.selecionada {
+  border-color: yellow;
+  outline-color: darkgoldenrod;
+}

@@ -23,11 +23,13 @@ let inputs = document.querySelectorAll('.controles input');
 inputs.forEach(inputEl => {
 
   inputEl.addEventListener('keyup', e => {
-    atualizaRegiao(regioesAnotadas[0]);
+    let marcacaoAtualmenteSelecionada = document.querySelector('.marcacao.selecionada');
+    atualizaRegiao(marcacaoAtualmenteSelecionada);
   });
 
   inputEl.addEventListener('change', e => {
-    atualizaRegiao(regioesAnotadas[0]);
+    let marcacaoAtualmenteSelecionada = document.querySelector('.marcacao.selecionada');
+    atualizaRegiao(marcacaoAtualmenteSelecionada);
   });
 });
 
@@ -42,3 +44,12 @@ function atualizaRegiao(marcacaoEl) {
   marcacaoEl.style.width = largura + 'px';
   marcacaoEl.style.height = altura + 'px';
 }
+
+
+regioesAnotadas.forEach(marcacaoEl => {
+  marcacaoEl.addEventListener('click', e => {
+    let marcacaoAtualmenteSelecionada = document.querySelector('.marcacao.selecionada');
+    marcacaoAtualmenteSelecionada.classList.remove('selecionada');
+    e.currentTarget.classList.add('selecionada');
+  })
+});
