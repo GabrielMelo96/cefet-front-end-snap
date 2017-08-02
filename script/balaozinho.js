@@ -53,3 +53,23 @@ regioesAnotadas.forEach(marcacaoEl => {
     e.currentTarget.classList.add('selecionada');
   })
 });
+
+
+let imagemEl = document.querySelector('.foto-anotada > img');
+let imagemFileEl = document.querySelector('#imagem');
+imagemFileEl.addEventListener('change', e => {
+  let arquivos = e.target.files;
+  if (arquivos.length === 0) {
+    return;
+  }
+  let arquivo = arquivos[0];
+  if (!arquivo.type.match('image.*')) {
+    return;
+  }
+  let reader = new FileReader();
+
+  reader.addEventListener('load', e => {
+    imagemEl.src = e.target.result;
+  });
+  reader.readAsDataURL(arquivo);
+});

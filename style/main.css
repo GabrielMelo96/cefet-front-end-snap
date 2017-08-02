@@ -113,3 +113,16 @@ main {
   border-color: yellow;
   outline-color: darkgoldenrod;
 }
+
+
+.escolha-imagem {
+  margin-top: 1.5em;
+}
+
+input[type="file"] {
+  max-width: 140px;
+}
+
+.foto-anotada > img {
+  max-width: 100%;
+}
